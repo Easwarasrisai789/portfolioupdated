@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1b2a;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-bar {
+            background-color: #0d1b2a;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links li a:hover {
+            color: #c63c0e;
+        }
+
+        .project-section {
+            padding: 50px 20px;
+            margin-top: 100px;
+            max-width: 1200px;
+            text-align: left;
+        }
+
+        .project-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #c63c0e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+        }
+
+        .project-info p, .project-info ul {
+            font-size: 1.2rem;
+        }
+
+        .project-info ul {
+            padding-left: 20px;
+        }
+
+        .project-info a {
+            color: #c63c0e;
+            text-decoration: none;
+        }
+
+        .project-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>   
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="project-section">
+        <h2>Web Development Projects</h2>
+
+        <div class="project-info">
+            <h3>Project 1: Task Manager</h3>
+            <p>This app helps users to manage their tasks efficiently with an intuitive user interface. It allows adding, editing, and deleting tasks with due dates and priorities.</p>
+            <p><strong>Code Link:</strong> <a href="https://github.com/Easwarasrisai789/TaskManager" target="_blank">TaskManager Code</a></p>
+
+            <h3>Project 2: Student Budget Tracker</h3>
+            <p>This app allows students to track their expenses and budget efficiently. Users can add their expenses, categorize them, and view summaries of their spending.</p>
+            <p><strong>Code Link:</strong> <a href="https://github.com/Easwarasrisai789/studentbudgettracker" target="_blank">Student Budget Tracker Code</a></p>
+            <p><strong>App Link:</strong> <a href="https://github.com/Easwarasrisai789/studentbudgetapp" target="_blank">Student Budget Tracker App</a></p>
+
+            <h3>Project 3: Time Table Generator</h3>
+            <p>This app generates a custom timetable based on user inputs, allowing them to plan their schedule effectively. It ensures efficient time management for students and professionals.</p>
+            <p><strong>Code Link:</strong> <a href="https://github.com/Easwarasrisai789/time-table-generater" target="_blank">Time Table Generator Code</a></p>
+            <p><strong>App Link:</strong> <a href="https://github.com/Easwarasrisai789/Time-Table-GENAPP" target="_blank">Time Table Generator App</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Disable right-click, copy, and inspect
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'x') || (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
