@@ -3,129 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Responsive Portfolio</title>
-    <!-- Adding fonts -->
+    <title>Skills - Animated Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Apply the background color and texture for the entire body */
+        /* Global Styling */
         body {
-            background-color: #0d1b2a; /* Dark blue background */
-            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Subtle texture */
-            color: #ffffff; /* White text for contrast */
+            background-color: #0d1b2a;
+            color: #ffffff;
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center content horizontally */
-        }
-
-        /* Styling the header navigation */
-        .nav-bar {
-            background-color: #0d1b2a; /* Matching background color */
-            padding: 20px;
             text-align: center;
-            position: fixed; /* Fixed position for consistency */
-            width: 100%; /* Full width */
-            top: 0; /* Stick to the top */
-            left: 0; /* Stick to the left */
-            z-index: 1000; /* Ensure it's above other content */
+            transition: background 0.5s, color 0.5s;
+            overflow-x: hidden;
         }
 
-        /* Styling the navigation links */
+        .nav-bar {
+            background: linear-gradient(90deg, #0d1b2a, #1a2839);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
         .nav-links {
-            list-style: none; /* Remove bullet points */
+            list-style: none;
             padding: 0;
             margin: 0;
         }
 
         .nav-links li {
-            display: inline-block; /* Display links in a horizontal line */
-            margin-right: 20px; /* Add spacing between links */
+            display: inline-block;
+            margin-right: 15px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .nav-links li a {
-            color: #ffffff; /* White text for the navigation links */
+            color: #ffffff;
             font-size: 1.2rem;
-            font-weight: 700;
             text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
         }
 
         .nav-links li a:hover {
-            color: #c63c0e; /* Lighter red for hover effect */
+            color: #ff6600;
+            transform: scale(1.1);
         }
 
-        /* Skills section styling */
+        /* Skills Section */
         .skills-section {
-            padding: 50px 20px;
-            margin-top: 80px; /* Adjusted top margin to move the section up */
-            max-width: 800px;
-            text-align: center;
+            padding: 80px 20px;
+            margin-top: 50px;
         }
 
         .skills-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #c63c0e; /* Lighter red for highlighting */
+            font-size: 2rem;
+            color: #ff6600;
             margin-bottom: 20px;
         }
 
-        .skills-section ul {
-            list-style: none; /* Remove bullet points */
-            padding: 0;
+        /* Skill Bars */
+        .skill {
+            margin: 15px auto;
+            width: 50%; /* Decreased width */
+            text-align: left;
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 102, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        .skills-section li {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 10px;
-            transition: transform 0.3s, z-index 0.3s; /* Smooth transition for the effect */
-            padding: 10px; /* Added padding to help with spacing */
-        }
-
-        .skills-section li:hover {
-            transform: translateY(-20px) scale(1.1); /* Move up more and scale up the item */
-            z-index: 10; /* Bring the item to the front */
-        }
-
-        /* Resume download button styling */
-        .download-button {
-            background-color: #c63c0e; /* Button background color */
-            padding: 15px 30px;
+        .skill-bar {
+            height: 10px; /* Reduced height */
+            background: #333;
             border-radius: 5px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .fill {
+            height: 100%;
+            background: linear-gradient(45deg, #ff6600, #ff3300);
+            width: 0;
+            border-radius: 5px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Hover Animation */
+        .skill:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0px 8px 20px rgba(255, 102, 0, 0.4);
+        }
+
+        .skill:hover .fill {
+            width: 100% !important;
+        }
+
+        /* Glowing Effect */
+        .skill:hover::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: rgba(255, 102, 0, 0.2);
+            filter: blur(8px);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        /* Resume Button */
+        .download-button {
+            background: linear-gradient(45deg, #ff6600, #ff3300);
+            padding: 12px 25px;
+            border-radius: 8px;
             text-decoration: none;
             color: #ffffff;
             font-weight: bold;
             display: inline-block;
-            transition: background-color 0.3s;
-            margin: 30px 0; /* Margin to space it from other content */
+            margin: 20px 0;
+            transition: transform 0.3s ease-in-out, background 0.3s;
         }
 
         .download-button:hover {
-            background-color: #a33c0a; /* Darker shade for hover effect */
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #ff3300, #cc2200);
         }
 
-        /* Media Queries for Responsiveness */
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         @media (max-width: 768px) {
             .skills-section h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .skill {
+                width: 80%;
             }
 
             .download-button {
                 padding: 10px 20px;
                 font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .skills-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .download-button {
-                padding: 8px 15px;
-                font-size: 0.9rem;
             }
         }
     </style>
@@ -145,31 +174,38 @@
 
     <section class="skills-section">
         <h2>My Skills</h2>
-        <ul>
-            <li>Cloud Computing</li>
-            <li>Web Development</li>
-            <li>Programming Languages: C, Python, HTML, CSS</li>
-            <li>Data Science</li>
-        </ul>
+        <div class="skill" data-width="90%">
+            <span>Cloud Computing</span>
+            <div class="skill-bar"><div class="fill"></div></div>
+        </div>
+        <div class="skill" data-width="85%">
+            <span>Web Development</span>
+            <div class="skill-bar"><div class="fill"></div></div>
+        </div>
+        <div class="skill" data-width="80%">
+            <span>Programming (C, Python, HTML, CSS)</span>
+            <div class="skill-bar"><div class="fill"></div></div>
+        </div>
+        <div class="skill" data-width="75%">
+            <span>Data Science</span>
+            <div class="skill-bar"><div class="fill"></div></div>
+        </div>
     </section>
 
-    <a href="2200032881_ANKAMREDDI EASWARA SRI SAI VENKAT.pdf" class="download-button" download="resume.pdf">Download Resume</a>
-
+    <a href="resume.pdf" class="download-button" download="resume.pdf">Download Resume</a>
 
     <script>
-        // Anti-copy functions
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const skills = document.querySelectorAll(".skill");
 
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'x') || (e.ctrlKey && e.key === 'u')) {
-                e.preventDefault();
-            }
+            skills.forEach(skill => {
+                skill.addEventListener("mouseenter", function () {
+                    let fill = this.querySelector(".fill");
+                    let width = this.getAttribute("data-width");
+                    fill.style.width = "0";
+                    setTimeout(() => { fill.style.width = width; }, 200);
+                });
+            });
         });
     </script>
 </body>
