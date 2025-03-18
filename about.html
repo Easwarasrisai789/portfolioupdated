@@ -19,6 +19,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden; /* Prevent scrollbars during animations */
         }
 
         /* Styling the header navigation */
@@ -26,6 +27,7 @@
             background-color: #0d1b2a; /* Matching background color */
             padding: 20px;
             text-align: center;
+            animation: fadeIn 1s ease; /* Fade-in animation for the header */
         }
 
         /* Styling the navigation links */
@@ -38,13 +40,22 @@
         .nav-links li {
             display: inline-block; /* Display links in a horizontal line */
             margin-right: 20px; /* Add spacing between links */
+            opacity: 0; /* Start with hidden links */
+            animation: slideIn 0.5s forwards; /* Slide-in animation for links */
         }
+
+        .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+        .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+        .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+        .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+        .nav-links li:nth-child(5) { animation-delay: 0.5s; }
 
         .nav-links li a {
             color: #ffffff; /* White text for the navigation links */
             font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
+            transition: color 0.3s; /* Smooth color transition */
         }
 
         .nav-links li a:hover {
@@ -53,17 +64,23 @@
 
         /* About section styling */
         .about-section {
-            background-color: #0d1b2a; /* Dark blue background */
+            background-color: transparent; /* Keep background unchanged */
             padding: 50px 20px;
             margin: 20px auto;
             max-width: 800px;
             text-align: center;
+            opacity: 0; /* Start with hidden content */
+            animation: fadeIn 1s forwards; /* Fade-in animation for the about section */
+            animation-delay: 0.6s; /* Delay for the about section */
+            border: 4px solid #ff8000; /* Orange border */
+            border-radius: 15px; /* Rounded border */
+            box-shadow: 0 0 15px rgba(255, 128, 0, 0.5); /* Glowing border effect */
         }
 
         .about-content h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #c63c0e; /* Lighter red for highlighting */
+            color: #ff8000; /* Orange for highlighting */
             margin-bottom: 20px;
         }
 
@@ -71,10 +88,17 @@
             font-size: 1.2rem;
             color: #ffffff;
             margin-bottom: 20px;
+            transform: translateY(20px); /* Start slightly lower */
+            opacity: 0; /* Start with hidden paragraphs */
+            animation: fadeInUp 0.5s forwards; /* Fade-in up animation for paragraphs */
+        }
+
+        .about-content p:nth-child(n+2) { /* Apply animation to all paragraphs except the first */
+            animation-delay: 0.7s; /* Delay for each paragraph */
         }
 
         .about-content a {
-            color: #c63c0e; /* Lighter red for links */
+            color: #ff8000; /* Orange for links */
             text-decoration: none;
         }
 
@@ -82,80 +106,22 @@
             text-decoration: underline;
         }
 
-        /* Modern scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 12px; /* Width of the scrollbar */
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #0d1b2a, #0d1b2a); /* Gradient thumb for modern look */
-            border-radius: 6px; /* Rounded edges */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #0d1b2a, #12243f); /* Lighter gradient on hover */
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0d1b2a; /* Match the background color */
-            border-radius: 6px;
-        }
-
-        /* Adding smooth scrolling behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Anti-copy functions */
-        ::selection {
-            background: none;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links li {
-                display: block; /* Stack navigation links vertically on smaller screens */
-                margin: 10px 0;
-            }
-
-            .about-content h2 {
-                font-size: 2rem; /* Adjust font size for smaller screens */
-            }
-
-            .about-content p {
-                font-size: 1rem; /* Adjust font size for smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-bar {
-                padding: 10px; /* Adjust padding for smaller screens */
-            }
-
-            .about-content h2 {
-                font-size: 1.5rem; /* Further adjust font size for very small screens */
-            }
-
-            .about-content p {
-                font-size: 0.9rem; /* Further adjust font size for very small screens */
-            }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <script>
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'x') || (e.ctrlKey && e.key === 'u')) {
-                e.preventDefault();
-            }
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -173,32 +139,11 @@
     <section class="about-section">
         <div class="about-content">
             <h2>About Me</h2>
-            <p>
-                I am an enthusiastic and fast learner with a strong foundation in Computer Science and Engineering, 
-                currently pursuing a Bachelor of Technology at Koneru Lakshmaiah Education Foundation, Vijayawada, 
-                with a CGPA of 9.2. My academic journey has equipped me with robust skills in Cloud Computing, 
-                Web Development, and Programming languages such as C, Python, HTML, and CSS.
-            </p>
-            <p>
-                Specializing in Data Science, I am passionate about analyzing complex data to derive actionable insights 
-                and contribute to data-driven decision-making. My specialization drives my commitment to leveraging 
-                data science skills to solve real-world problems and foster innovation.
-            </p>
-            <p>
-                I have gained practical experience through an AICTE Virtual Internship on AWS and hold an AWS Cloud 
-                Practitioner certification, which has deepened my understanding of cloud technologies. My education and 
-                hands-on experience have honed my communication skills and my ability to work effectively within a team 
-                environment.
-            </p>
-            <p>
-                My academic achievements include a high percentage in SSC  and Intermediate , reflecting 
-                my dedication and commitment to excellence. I am eager to apply my expertise in cloud computing, data 
-                science, and web development to contribute to innovative projects and solutions.
-            </p>
-            <p>
-                Feel free to connect with me on <a href="https://www.linkedin.com/in/ankamreddi-easwara-sri-sai-venkat-63090b26a/">LinkedIn</a> 
-                for professional networking and opportunities.
-            </p>
+            <p>I am an enthusiastic and fast learner with a strong foundation in Computer Science...</p>
+            <p>Specializing in Data Science, I am passionate about analyzing complex data...</p>
+            <p>I have gained practical experience through an AICTE Virtual Internship on AWS...</p>
+            <p>My academic achievements include a high percentage in SSC and Intermediate...</p>
+            <p>Feel free to connect with me on <a href="https://www.linkedin.com">LinkedIn</a> for professional networking.</p>
         </div>
     </section>
 </body>
