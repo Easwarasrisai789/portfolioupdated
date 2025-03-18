@@ -10,7 +10,7 @@
         body {
             background-color: #0d1b2a; /* Dark blue background */
             background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Subtle texture */
-            color: #e0e0e0; /* Soft white text */
+            color: #ffffff; /* White text for contrast */
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
@@ -44,15 +44,14 @@
         }
 
         .nav-links li a {
-            color: #ffffff; /* Bright white for navbar links */
+            color: #ffffff;
             font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         .nav-links li a:hover {
-            color: #ffcc00; /* Golden-yellow hover effect */
+            color: #c63c0e;
         }
 
         /* Contact section styling */
@@ -70,13 +69,12 @@
         .contact-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #ffcc00; /* Warm golden-yellow */
+            color: #c63c0e;
             margin-bottom: 20px;
         }
 
         .contact-section p {
             font-size: 1.2rem;
-            color: #e0e0e0; /* Soft white for readability */
             margin-bottom: 20px;
         }
 
@@ -94,33 +92,25 @@
             font-size: 1rem;
             border-radius: 5px;
             border: none;
-            background: #152238; /* Darker blue input field */
-            color: #ffffff; /* White text */
-        }
-
-        input::placeholder, textarea::placeholder {
-            color: #d3d3d3; /* Light gray for better contrast */
         }
 
         input[type="submit"] {
-            background-color: #ffcc00; /* Golden-yellow button */
-            color: #000000;
+            background-color: #c63c0e;
+            color: white;
             cursor: pointer;
             font-weight: 700;
             border: none;
-            padding: 12px;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s;
         }
 
         input[type="submit"]:hover {
-            background-color: #e6b800; /* Slightly darker yellow on hover */
-            color: #ffffff;
+            background-color: #a53b08;
         }
 
         /* Confirmation message styling */
         #confirmation-message {
             display: none;
-            color: #4CAF50; /* Bright green */
+            color: #4CAF50;
             font-weight: bold;
             margin-top: 10px;
         }
@@ -165,7 +155,7 @@
 
         <!-- Confirmation message -->
         <p id="confirmation-message">
-            ✅ Thank you for filling out this form! Your message has been submitted successfully.
+            Thank you for filling out this form! Your message has been submitted successfully.
         </p>
     </section>
 
