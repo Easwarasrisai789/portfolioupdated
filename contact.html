@@ -22,7 +22,7 @@
 
         /* Styling the header navigation */
         .nav-bar {
-            background-color: #0d1b2a; /* Matching background color */
+            background-color: #0d1b2a;
             padding: 20px;
             text-align: center;
             position: fixed;
@@ -59,9 +59,9 @@
             padding: 50px 20px;
             margin-top: 100px;
             max-width: 600px;
-            width: 100%; /* Ensure full width on smaller screens */
+            width: 100%;
             text-align: center;
-            background-color: #1b263b; /* Darker background for the section */
+            background-color: #1b263b;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -100,10 +100,19 @@
             cursor: pointer;
             font-weight: 700;
             border: none;
+            transition: background 0.3s;
         }
 
         input[type="submit"]:hover {
             background-color: #a53b08;
+        }
+
+        /* Confirmation message styling */
+        #confirmation-message {
+            display: none;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         /* Responsive adjustments */
@@ -136,16 +145,45 @@
         <h2>Contact Me</h2>
 
         <!-- Formspree contact form -->
-        <form action="https://formspree.io/f/meoekpyn" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/meoekpyn" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Gmail" required>
             <input type="tel" name="phone" placeholder="Your Phone Number" required>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
             <input type="submit" value="Send Message">
         </form>
+
+        <!-- Confirmation message -->
+        <p id="confirmation-message">
+            Thank you for filling out this form! Your message has been submitted successfully.
+        </p>
     </section>
 
     <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var form = this;
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById("confirmation-message").style.display = "block"; // Show success message
+                    form.reset(); // Reset form fields
+                } else {
+                    alert("Something went wrong! Please try again.");
+                }
+            }).catch(error => {
+                alert("There was an error submitting the form.");
+            });
+        });
+
         // Anti-copy functions
         document.addEventListener('selectstart', function(e) {
             e.preventDefault();
