@@ -10,7 +10,7 @@
         body {
             background-color: #0d1b2a; /* Dark blue background */
             background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Subtle texture */
-            color: #ffffff; /* White text for contrast */
+            color: #ffffff; /* White text for readability */
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
@@ -44,14 +44,15 @@
         }
 
         .nav-links li a {
-            color: #ffffff;
+            color: #f0f0f0;
             font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .nav-links li a:hover {
-            color: #c63c0e;
+            color: #f4a261;
         }
 
         /* Contact section styling */
@@ -61,7 +62,7 @@
             max-width: 600px;
             width: 100%;
             text-align: center;
-            background-color: #1b263b;
+            background-color: rgba(27, 38, 59, 0.95); /* Dark background with transparency */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -69,12 +70,13 @@
         .contact-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #c63c0e;
+            color: #f4a261; /* Warm orange */
             margin-bottom: 20px;
         }
 
         .contact-section p {
             font-size: 1.2rem;
+            color: #f0f0f0;
             margin-bottom: 20px;
         }
 
@@ -88,29 +90,37 @@
 
         input, textarea {
             width: 80%;
-            padding: 10px;
+            padding: 12px;
             font-size: 1rem;
             border-radius: 5px;
             border: none;
+            background: #152238; /* Darker blue input field */
+            color: #ffffff; /* White text */
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #d3d3d3; /* Light gray for better contrast */
         }
 
         input[type="submit"] {
-            background-color: #c63c0e;
-            color: white;
+            background-color: #f4a261;
+            color: #000000;
             cursor: pointer;
             font-weight: 700;
             border: none;
-            transition: background 0.3s;
+            padding: 12px;
+            transition: background 0.3s, color 0.3s;
         }
 
         input[type="submit"]:hover {
-            background-color: #a53b08;
+            background-color: #e76f51;
+            color: #ffffff;
         }
 
         /* Confirmation message styling */
         #confirmation-message {
             display: none;
-            color: #4CAF50;
+            color: #4CAF50; /* Bright green */
             font-weight: bold;
             margin-top: 10px;
         }
@@ -155,7 +165,7 @@
 
         <!-- Confirmation message -->
         <p id="confirmation-message">
-            Thank you for filling out this form! Your message has been submitted successfully.
+            ✅ Thank you for filling out this form! Your message has been submitted successfully.
         </p>
     </section>
 
