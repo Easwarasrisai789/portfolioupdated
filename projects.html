@@ -19,36 +19,37 @@
       align-items: center;
     }
 
+    /* ✅ Previous navbar style (clean and centered) */
     .nav-bar {
       background-color: #0d1b2a;
-      padding: 20px;
-      text-align: center;
+      padding: 20px 0;
       position: fixed;
-      width: 100%;
       top: 0;
       left: 0;
+      width: 100%;
       z-index: 1000;
     }
 
     .nav-links {
+      display: flex;
+      justify-content: center;
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
     .nav-links li {
-      display: inline-block;
-      margin-right: 20px;
+      margin: 0 15px;
     }
 
-    .nav-links li a {
+    .nav-links a {
       color: #ffffff;
-      font-size: 1.2rem;
-      font-weight: 700;
       text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
     }
 
-    .nav-links li a:hover {
+    .nav-links a:hover {
       color: #ff6600;
     }
 
