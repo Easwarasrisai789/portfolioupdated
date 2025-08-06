@@ -1,215 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects - Responsive Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #0d1b2a;
-      background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
-      color: #ffffff;
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Responsive Portfolio</title>
+    <!-- Adding fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply the background color and texture for the entire body */
+        body {
+            background-color: #0d1b2a; /* Dark blue background */
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Subtle texture */
+            color: #ffffff; /* White text for contrast */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+        }
 
-    /* ✅ Previous navbar style (clean and centered) */
-    .nav-bar {
-      background-color: #0d1b2a;
-      padding: 20px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+        /* Styling the header navigation */
+        .nav-bar {
+            background-color: #0d1b2a; /* Matching background color */
+            padding: 20px;
+            text-align: center;
+            position: fixed; /* Fixed position for consistency */
+            width: 100%; /* Full width */
+            top: 0; /* Stick to the top */
+            left: 0; /* Stick to the left */
+            z-index: 1000; /* Ensure it's above other content */
+        }
 
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+        /* Styling the navigation links */
+        .nav-links {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+        }
 
-    .nav-links li {
-      margin: 0 15px;
-    }
+        .nav-links li {
+            display: inline-block; /* Display links in a horizontal line */
+            margin-right: 20px; /* Add spacing between links */
+        }
 
-    .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
+        .nav-links li a {
+            color: #ffffff; /* White text for the navigation links */
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
 
-    .nav-links a:hover {
-      color: #ff6600;
-    }
+        .nav-links li a:hover {
+            color: #c63c0e; /* Lighter red for hover effect */
+        }
 
-    .projects-section {
-      padding: 80px 20px;
-      margin-top: 100px;
-      max-width: 1200px;
-      text-align: center;
-    }
+        /* Projects section styling */
+        .projects-section {
+            padding: 50px 20px;
+            margin-top: 100px; /* Adjusted top margin to move the section down */
+            max-width: 1200px;
+            text-align: center;
+        }
 
-    .projects-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #ff6600;
-      margin-bottom: 40px;
-      animation: fadeIn 1s ease-in;
-    }
+        .projects-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #c63c0e; /* Lighter red for highlighting */
+            margin-bottom: 20px;
+        }
 
-    .projects-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        /* Responsive project layout using Flexbox */
+        .projects-container {
+            display: flex;
+            justify-content: space-between; /* Ensure equal spacing between boxes */
+            gap: 20px; /* Space between boxes */
+            flex-wrap: wrap; /* Allow wrap on smaller screens */
+        }
 
-    .project-box {
-      background-color: #1b263b;
-      border-radius: 10px;
-      padding: 20px;
-      width: calc(50% - 10px);
-      height: 320px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      color: #ffffff;
-      text-align: left;
-      box-sizing: border-box;
-      position: relative;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+        /* Project box styling */
+        .project-box {
+            background-color: #1b263b; /* Darker background for boxes */
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(50% - 10px); /* Two boxes side by side with equal width */
+            height: 300px; /* Set equal height to make the boxes square */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            text-align: left;
+            box-sizing: border-box;
+        }
 
-    .project-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.3);
-    }
+        .project-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #c63c0e; /* Lighter red for project titles */
+            margin-bottom: 10px;
+        }
 
-    .project-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
+        .project-box p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
 
-    .project-box p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
+        .project-box a {
+            color: #c63c0e; /* Lighter red for links */
+            text-decoration: none;
+        }
 
-    .project-box a {
-      color: #ffffff;
-      background-color: #ff6600;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-      position: absolute;
-      bottom: 20px;
-    }
+        .project-box a:hover {
+            text-decoration: underline;
+        }
 
-    .project-box a:hover {
-      background-color: #cc4400;
-    }
+        /* Flexbox adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .project-box {
+                width: 100%; /* Full width for smaller screens */
+                height: auto; /* Allow dynamic height on small screens */
+            }
+        }
 
-    @media (max-width: 768px) {
-      .project-box {
-        width: 100%;
-        height: auto;
-        padding-bottom: 60px;
-      }
+        /* Custom Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 12px; /* Width of the scrollbar */
+        }
 
-      .projects-section h2 {
-        font-size: 2rem;
-      }
-    }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #1b263b, #1b263b); /* Gradient thumb for modern look */
+            border-radius: 6px; /* Rounded edges */
+        }
 
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #1b263b, #12243f); /* Highlight on hover */
+        }
 
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(45deg, #1b263b, #1b263b);
-      border-radius: 6px;
-    }
+        ::-webkit-scrollbar-track {
+            background: #0d1b2a; /* Darker background for track */
+            border-radius: 6px;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(45deg, #1b263b, #12243f);
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #0d1b2a;
-      border-radius: 6px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+        /* Smooth scrolling for better navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="nav-bar">
-      <ul class="nav-links">
-        <li><a href="index.html">Intro</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="index.html">Intro</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="projects-section">
-    <h2>My Projects</h2>
-    <div class="projects-container">
-      <div class="project-box">
-        <h3>Airline Reservation System</h3>
-        <p>The Airline Reservation System is developed using the MERN stack. It provides solutions for flight bookings, user accounts, and flight schedules.</p>
-        <a href="project1.html">View More</a>
-      </div>
-      <div class="project-box">
-        <h3>Event Management System</h3>
-        <p>Developed using JDBC and Java EE, this system organizes and manages events efficiently with detailed data control and tracking.</p>
-        <a href="project2.html">View More</a>
-      </div>
-      <div class="project-box">
-        <h3>Data Analytics Projects</h3>
-        <p>Projects focusing on extracting insights from data using Python, SQL, R, and visualization tools for decision-making and pattern discovery.</p>
-        <a href="project3.html">View More</a>
-      </div>
-      <div class="project-box">
-        <h3>Web Development Projects</h3>
-        <p>Projects demonstrating frontend and backend development using HTML, CSS, JavaScript, React, and modern web technologies.</p>
-        <a href="project4.html">View More</a>
-      </div>
-    </div>
-  </section>
+    <section class="projects-section">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+            <div class="project-box">
+                <h3>Airline Reservation System</h3>
+                <p> The Airline Reservation System is a sophisticated application developed using the MERN stack, which includes MongoDB, Express.js, React.js, and Node.js. This system provides a seamless solution for managing flight bookings, user accounts, and flight information.</p>
+                <a href="project1.html">View More</a>
+            </div>
+            <div class="project-box">
+                <h3>Event Management System</h3>
+                <p> The Event Management System is a comprehensive solution developed using JDBC and Enterprise Programming principles in Java. This system is designed to streamline the management of various events, providing a robust platform for organizing, tracking, and managing event-related data efficiently.</p>
+                <a href="project2.html">View More</a>
+            </div>
+            <div class="project-box">
+                <h3>DATA ANALYTICS projects</h3>
+                <p>These projects focus on analyzing and interpreting large datasets to derive meaningful insights using various data analytics techniques. They demonstrate expertise in tools like Python, R, and SQL for data analysis and visualization.</p>
+                <a href="project3.html">View More</a>
+            </div>
+            <div class="project-box">
+                <h3>Web Development Projects</h3>
+                <p>These projects showcase my skills in building dynamic and interactive web applications using JavaScript, HTML, and other modern web development technologies. They demonstrate my ability to create user-friendly, responsive interfaces and implement complex functionality.</p>
+                <a href="project4.html">View More</a>
+            </div>
+            
+        </div>
+    </section>
 
-  <script>
-    // Disable copy, right-click, and certain key combos
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if ((e.ctrlKey && ['c', 'x', 'u'].includes(e.key.toLowerCase()))) {
-        e.preventDefault();
-      }
-    });
-  </script>
+    <script>
+        // Anti-copy functions
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'x') || (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
